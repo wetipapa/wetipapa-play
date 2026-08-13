@@ -1,0 +1,63 @@
+@import "../brand/tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--wp-color-bg);
+  color: var(--wp-color-ink);
+  font-family: var(--wp-font-body);
+  font-size: var(--wp-text-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+  /* 한글 단어 중간(예: "네이버"가 "네이"/"버"로)이 잘려 줄바꿈되지 않도록 함 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* 모바일에서 가로 스크롤이 절대 생기지 않도록 안전장치를 한 번 더 둔다 */
+#__next,
+main {
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--wp-focus-ring);
+  border-radius: var(--wp-radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

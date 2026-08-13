@@ -1,0 +1,137 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--wp-color-bg) 0%, var(--wp-color-surface-soft) 100%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--wp-max-width);
+  margin: 0 auto;
+  padding: clamp(2.25rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) clamp(1.75rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.25rem, 4vw, 3rem);
+}
+
+.text {
+  max-width: 34rem;
+}
+
+.relation {
+  display: inline-block;
+  margin: 0 0 0.85rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--wp-radius-pill);
+  background: var(--wp-color-primary-tint);
+  color: var(--wp-color-primary);
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: var(--wp-text-small);
+}
+
+.heading {
+  margin: 0 0 0.6rem;
+  font-family: var(--wp-font-display);
+  font-size: var(--wp-text-hero);
+  line-height: 1.05;
+  color: var(--wp-color-ink);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.headingKo {
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
+  color: var(--wp-color-primary-bright);
+}
+
+.copy {
+  margin: 0;
+  font-family: var(--wp-font-body);
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
+  color: var(--wp-color-ink-soft);
+  line-height: 1.6;
+}
+
+.mascotWrap {
+  flex-shrink: 0;
+  width: clamp(9.5rem, 24vw, 15rem);
+  filter: drop-shadow(0 14px 20px rgba(51, 36, 28, 0.16));
+}
+
+.mascotImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sparkleA,
+.sparkleB,
+.sparkleC {
+  position: absolute;
+  color: var(--wp-color-primary-bright);
+  opacity: 0.5;
+}
+
+.sparkleA {
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 12%;
+  left: 6%;
+}
+
+.sparkleB {
+  width: 1.1rem;
+  height: 1.1rem;
+  bottom: 18%;
+  left: 30%;
+  color: var(--wp-color-clock);
+  opacity: 0.35;
+}
+
+.sparkleC {
+  width: 1.3rem;
+  height: 1.3rem;
+  top: 20%;
+  right: 32%;
+  color: var(--wp-color-racing);
+  opacity: 0.3;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .heading {
+    justify-content: center;
+  }
+
+  .text {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mascotImg {
+    animation: wp-float 5s ease-in-out infinite;
+  }
+}
+
+@keyframes wp-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

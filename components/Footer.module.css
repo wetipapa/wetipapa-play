@@ -1,0 +1,91 @@
+.footer {
+  background: var(--wp-color-ink);
+  color: #f4ece4;
+  padding: clamp(2rem, 5vw, 2.75rem) 0 1.5rem;
+}
+
+.inner {
+  max-width: var(--wp-max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(244, 236, 228, 0.16);
+}
+
+.brandCol {
+  min-width: 0;
+}
+
+.footerLogo {
+  color: #f4ece4;
+}
+
+.brandLine {
+  margin: 0.75rem 0 0.35rem;
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #f4ece4;
+}
+
+.desc {
+  margin: 0;
+  font-family: var(--wp-font-body);
+  font-size: 0.85rem;
+  color: rgba(244, 236, 228, 0.7);
+  line-height: 1.5;
+}
+
+.colTitle {
+  margin: 0 0 0.75rem;
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: rgba(244, 236, 228, 0.65);
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.linkList a {
+  font-family: var(--wp-font-body);
+  font-size: 0.9rem;
+  color: #f4ece4;
+  text-decoration: none;
+}
+
+.linkList a:hover {
+  color: var(--wp-color-primary-bright);
+  text-decoration: underline;
+}
+
+.linkList a:focus-visible {
+  outline: 2px solid var(--wp-color-primary-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.copyright {
+  margin: 1.5rem 0 0;
+  font-family: var(--wp-font-body);
+  font-size: 0.78rem;
+  color: rgba(244, 236, 228, 0.55);
+}
+
+@media (max-width: 640px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+}

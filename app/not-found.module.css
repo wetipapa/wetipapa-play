@@ -1,0 +1,88 @@
+.wrap {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, var(--wp-color-bg) 0%, var(--wp-color-surface-soft) 100%);
+}
+
+.card {
+  position: relative;
+  max-width: 26rem;
+  width: 100%;
+  text-align: center;
+  background: var(--wp-color-surface);
+  border: 2px solid var(--wp-color-border);
+  border-radius: var(--wp-radius-lg);
+  padding: clamp(2rem, 6vw, 2.75rem) clamp(1.5rem, 5vw, 2.25rem);
+  box-shadow: var(--wp-shadow-card);
+}
+
+.sparkle {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--wp-color-primary-bright);
+  opacity: 0.6;
+}
+
+.emoji {
+  font-size: 2.75rem;
+  margin: 0 0 0.5rem;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-family: var(--wp-font-display);
+  font-size: var(--wp-text-h2);
+  color: var(--wp-color-ink);
+}
+
+.desc {
+  margin: 0 0 1.75rem;
+  font-family: var(--wp-font-body);
+  color: var(--wp-color-ink-soft);
+  line-height: 1.6;
+}
+
+.home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.75rem;
+  border-radius: var(--wp-radius-pill);
+  background: var(--wp-color-primary-bright);
+  color: #fff;
+  font-family: var(--wp-font-display);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform var(--wp-transition-fast);
+}
+
+.home:hover {
+  transform: translateY(-2px);
+}
+
+.home:focus-visible {
+  outline: none;
+  box-shadow: var(--wp-focus-ring);
+}
+
+.logo {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home {
+    transition: none;
+  }
+  .home:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "wetipapa-play",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WETI PLAY(웨티플레이) - 웨티아빠 학습 서비스 통합 허브",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate:brand": "node scripts/generate-brand-assets.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "png-to-ico": "^3.0.2",
+    "sharp": "^0.35.3",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,32 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--wp-color-bg) 88%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--wp-color-border);
+}
+
+.inner {
+  max-width: var(--wp-max-width);
+  margin: 0 auto;
+  padding: 0.85rem clamp(1rem, 4vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--wp-font-body);
+  font-size: var(--wp-text-small);
+  color: var(--wp-color-ink-soft);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .tagline {
+    display: none;
+  }
+}

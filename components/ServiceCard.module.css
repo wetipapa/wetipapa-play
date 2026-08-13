@@ -1,0 +1,157 @@
+.card {
+  --accent: var(--wp-color-neutral);
+  --accent-tint: var(--wp-color-neutral-tint);
+  --accent-ink: var(--wp-color-neutral-ink);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--wp-radius-lg);
+  background: var(--wp-color-surface);
+  border: 2px solid var(--accent-tint);
+  box-shadow: var(--wp-shadow-card);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform var(--wp-transition-med), box-shadow var(--wp-transition-med),
+    border-color var(--wp-transition-med);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--wp-shadow-card-hover);
+  border-color: var(--accent);
+}
+
+.card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+.card:focus-visible {
+  outline: none;
+  box-shadow: var(--wp-focus-ring), var(--wp-shadow-card);
+}
+
+.card.disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.card.disabled:hover {
+  transform: none;
+  box-shadow: var(--wp-shadow-card);
+  border-color: var(--accent-tint);
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: var(--wp-radius-md);
+  background: var(--accent-tint);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--wp-radius-pill);
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  background: var(--accent);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.badge.neutralBadge {
+  background: var(--wp-color-neutral);
+}
+
+.body {
+  flex-grow: 1;
+}
+
+.name {
+  margin: 0 0 0.35rem;
+  font-family: var(--wp-font-display);
+  font-size: var(--wp-text-h3);
+  color: var(--wp-color-ink);
+}
+
+.tagline {
+  margin: 0 0 0.5rem;
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-ink);
+}
+
+.description {
+  margin: 0;
+  font-family: var(--wp-font-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--wp-color-ink-soft);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--wp-radius-pill);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--wp-font-display);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.cta .arrow {
+  transition: transform var(--wp-transition-fast);
+}
+
+.card:hover .cta .arrow {
+  transform: translateX(3px);
+}
+
+.ctaDisabled {
+  composes: cta;
+  background: var(--accent-tint);
+  color: var(--accent-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover,
+  .card:active,
+  .cta .arrow,
+  .card:hover .cta .arrow {
+    transition: none;
+    transform: none;
+  }
+}

@@ -1,0 +1,45 @@
+.section {
+  padding: clamp(1rem, 3vw, 1.5rem) 0 clamp(2rem, 5vw, 3rem);
+}
+
+.inner {
+  max-width: var(--wp-max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.sectionHead {
+  text-align: center;
+  margin-bottom: clamp(1.25rem, 4vw, 2rem);
+}
+
+.heading {
+  margin: 0 0 0.35rem;
+  font-family: var(--wp-font-display);
+  font-size: var(--wp-text-h2);
+  color: var(--wp-color-ink);
+}
+
+.subheading {
+  margin: 0;
+  font-family: var(--wp-font-body);
+  color: var(--wp-color-ink-soft);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.gridItem {
+  display: flex;
+}
+
+.gridItem > :global(a),
+.gridItem > :global(div) {
+  width: 100%;
+}

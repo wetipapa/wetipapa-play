@@ -1,0 +1,129 @@
+.section {
+  background: var(--wp-color-surface-soft);
+  border-top: 1px solid var(--wp-color-border);
+  padding: clamp(2rem, 5vw, 3.25rem) 0;
+}
+
+.inner {
+  max-width: var(--wp-max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  text-align: center;
+}
+
+.heading {
+  margin: 0 0 0.5rem;
+  font-family: var(--wp-font-display);
+  font-size: var(--wp-text-h2);
+  color: var(--wp-color-ink);
+}
+
+.lead {
+  margin: 0 auto clamp(1.5rem, 4vw, 2.25rem);
+  max-width: 34rem;
+  font-family: var(--wp-font-body);
+  color: var(--wp-color-ink-soft);
+  line-height: 1.6;
+}
+
+.list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 40rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--wp-radius-md);
+  background: var(--wp-color-surface);
+  border: 2px solid var(--wp-color-border);
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+  min-height: 4.75rem;
+  transition: transform var(--wp-transition-med), box-shadow var(--wp-transition-med),
+    border-color var(--wp-transition-med);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--wp-shadow-pop);
+  border-color: var(--wp-color-primary-bright);
+}
+
+.card:focus-visible {
+  outline: none;
+  box-shadow: var(--wp-focus-ring);
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--wp-radius-pill);
+  background: var(--wp-color-primary-tint);
+  color: var(--wp-color-primary);
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.name {
+  font-family: var(--wp-font-body);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--wp-color-ink);
+}
+
+.reason {
+  font-family: var(--wp-font-body);
+  font-size: 0.82rem;
+  color: var(--wp-color-ink-soft);
+  line-height: 1.4;
+}
+
+.cta {
+  display: none;
+}
+
+@media (min-width: 560px) {
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--wp-font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--wp-color-primary);
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+}
