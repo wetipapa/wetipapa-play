@@ -15,7 +15,7 @@
 // (각 프로젝트는 독립 배포되므로 brand-assets를 코드에서 직접 참조할 수 없다.)
 //
 //   wtpp_symbol_color.png            confirmed/ci/                WTPP 대표 심벌
-//   wetipapa_weti_together_01.png    confirmed/character-fullbody/ 아빠+웨티 합본 컷
+//   wetipapa_weti_together_02.png    confirmed/character-fullbody/ 아빠+웨티 합본 컷
 //
 // 2026-08-14 변경: 파비콘·앱 아이콘의 원본을 OGQ 리액션 스티커(04_approved)에서
 // 공식 컬러 심벌로 교체했다. 상위 문서(brand-assets/BRAND_GUIDE.md §4.3·§6.1)가
@@ -31,7 +31,8 @@ const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const SOURCE_DIR = path.join(ROOT, "brand", "source");
 // 대표 CI가 WTPP로 바뀌면서 파비콘·앱 아이콘·OG가 모두 WTPP 마스터 심벌을 쓴다.
 const SOURCE_SYMBOL = path.join(SOURCE_DIR, "wtpp_symbol_color.png");
-const SOURCE_TOGETHER = path.join(SOURCE_DIR, "wetipapa_weti_together_01.png");
+// 아빠가 웨티 머리에 손을 얹은 컷. 나란히 선 01보다 두 사람의 관계가 한눈에 읽힌다.
+const SOURCE_TOGETHER = path.join(SOURCE_DIR, "wetipapa_weti_together_02.png");
 const BRAND_ASSETS = path.join(ROOT, "brand", "assets");
 const APP_DIR = path.join(ROOT, "app");
 

@@ -30,7 +30,7 @@ export default function BrandIntro() {
         <div className={styles.mascotWrap}>
           <Image
             src={mascotHero}
-            alt="나란히 서서 웃고 있는 웨티아빠와 아들 웨티 캐릭터"
+            alt="웨티 머리에 손을 얹고 웃고 있는 웨티아빠와 아들 웨티 캐릭터"
             priority
             className={styles.mascotImg}
             sizes="(max-width: 640px) 128px, 176px"
