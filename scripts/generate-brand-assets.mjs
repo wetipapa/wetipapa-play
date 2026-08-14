@@ -41,9 +41,11 @@ const COLOR_PRIMARY_BRIGHT = "#f0900c";
 const COLOR_NAVY = "#013075";
 const COLOR_INK = "#33241c";
 const COLOR_INK_SOFT = "#6b5b52";
-// 아이콘 배경은 흰색으로 둔다. 심벌 자체가 네이비 라운드 타일을 갖고 있어서
-// 배경까지 색을 넣으면 타일 경계가 뭉개진다.
-const COLOR_ICON_BG = "#ffffff";
+// 아이콘 배경은 심벌 타일과 같은 네이비다.
+// 흰색으로 두면 홈 화면에 추가했을 때 아이콘 바깥에 흰 테두리가 남는다
+// (iOS·안드로이드가 정사각형을 둥글게 깎으면서 모서리의 흰 배경이 그대로 보인다).
+// 배경을 타일과 같은 색으로 맞추면 네이비 하나로 이어진 아이콘이 된다.
+const COLOR_ICON_BG = COLOR_NAVY;
 
 async function ensureDir(dir) {
   await mkdir(dir, { recursive: true });
@@ -87,10 +89,9 @@ async function buildIconMaster() {
   const symbol = await trimToContent(SOURCE_SYMBOL);
   const meta = await sharp(symbol).metadata();
 
-  // 심벌이 이미 라운드 타일 형태라 별도 프레임을 두르지 않는다.
-  // 캔버스의 96%까지 키운다. 여백을 더 두면 16~32px 파비콘에서 두 얼굴이 뭉개지고,
-  // iOS 홈 화면에서도 다른 앱 아이콘보다 작아 보인다.
-  const scale = Math.min((size * 0.96) / meta.width, (size * 0.96) / meta.height);
+  // 배경이 타일과 같은 네이비라 타일 경계가 보이지 않는다. 타일 안쪽 여백이
+  // 그대로 아이콘 여백이 되므로 캔버스를 꽉 채운다.
+  const scale = Math.min(size / meta.width, size / meta.height);
   const symW = Math.round(meta.width * scale);
   const symH = Math.round(meta.height * scale);
   const resized = await sharp(symbol).resize(symW, symH).toBuffer();
@@ -118,12 +119,29 @@ async function buildIconMaster() {
   return composed;
 }
 
+/**
+ * 모서리를 둥글게 깎는다.
+ * 브라우저 탭과 북마크는 아이콘을 받은 그대로 그려서, 정사각형이면 각진 네이비 덩어리로 보인다.
+ * 홈 화면 아이콘(apple-icon, PWA)은 OS가 알아서 깎으므로 정사각형 그대로 둔다.
+ */
+async function roundCorners(buffer, size) {
+  const r = Math.round(size * 0.22);
+  const mask = Buffer.from(
+    `<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" rx="${r}" ry="${r}" fill="#fff"/></svg>`,
+  );
+  return sharp(buffer)
+    .resize(size, size)
+    .composite([{ input: mask, blend: "dest-in" }])
+    .png()
+    .toBuffer();
+}
+
 async function buildFavicons(iconMasterBuffer) {
   await ensureDir(APP_DIR);
 
   // app/icon.png — 최신 브라우저 탭/PWA 아이콘 (Next.js 메타데이터 컨벤션)
-  await sharp(iconMasterBuffer).resize(512, 512).png().toFile(path.join(APP_DIR, "icon.png"));
-  console.log("✓ app/icon.png (512x512)");
+  await writeFile(path.join(APP_DIR, "icon.png"), await roundCorners(iconMasterBuffer, 512));
+  console.log("✓ app/icon.png (512x512, 둥근 모서리)");
 
   // public/icon-*.png — manifest.ts(웹 앱 매니페스트)가 안정적인 고정 경로로
   // 참조할 수 있도록 public 폴더에도 같은 아이콘을 별도로 둔다.
@@ -142,9 +160,9 @@ async function buildFavicons(iconMasterBuffer) {
   console.log("✓ app/apple-icon.png (180x180)");
 
   // favicon.ico — 구형 브라우저/북마크용 멀티 사이즈 ICO
-  const png16 = await sharp(iconMasterBuffer).resize(16, 16).png().toBuffer();
-  const png32 = await sharp(iconMasterBuffer).resize(32, 32).png().toBuffer();
-  const png48 = await sharp(iconMasterBuffer).resize(48, 48).png().toBuffer();
+  const png16 = await roundCorners(iconMasterBuffer, 16);
+  const png32 = await roundCorners(iconMasterBuffer, 32);
+  const png48 = await roundCorners(iconMasterBuffer, 48);
   const icoBuffer = await pngToIco([png16, png32, png48]);
   await writeFile(path.join(APP_DIR, "favicon.ico"), icoBuffer);
   console.log("✓ app/favicon.ico (16/32/48)");

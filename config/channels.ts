@@ -13,7 +13,7 @@ export interface WetiChannel {
   id: string;
   /** 채널명 (예: 웨티아빠 네이버 블로그) */
   name: string;
-  /** 방문 이유를 설명하는 한 문장 */
+  /** 이 채널이 어떤 곳인지 설명하는 한 문장 */
   reason: string;
   /** 실제 채널 URL. 확인되지 않았다면 undefined로 두면 자동으로 숨겨진다 */
   url?: string;
@@ -31,7 +31,7 @@ export const channels: WetiChannel[] = [
   {
     id: "blog",
     name: "웨티아빠 네이버 블로그",
-    reason: "아이와 직접 해본 학습법과 자료를 확인해보세요",
+    reason: "아들 웨티와 함께하는 소소한 일상을 소개합니다",
     url: "https://blog.naver.com/wetipapa",
     ctaLabel: "블로그 놀러가기",
     icon: BlogIcon,
@@ -41,7 +41,7 @@ export const channels: WetiChannel[] = [
   {
     id: "threads",
     name: "웨티아빠 Threads",
-    reason: "새로운 게임과 육아·교육 이야기를 가장 먼저 만나보세요",
+    reason: "웨티와의 일상과 새 게임 소식을 가장 빠르게 만나보세요",
     url: "https://www.threads.com/@wetipapa",
     ctaLabel: "Threads 팔로우",
     icon: ThreadsIcon,

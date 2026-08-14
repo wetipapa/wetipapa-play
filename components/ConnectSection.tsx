@@ -18,7 +18,7 @@ export default function ConnectSection() {
           웨티아빠 더 만나기
         </h2>
         <p className={styles.lead}>
-          웨티아빠가 아이와 직접 만들고 사용한 학습 이야기, 블로그와 Threads에서 계속 만나요.
+          아들 웨티와 함께하는 소소한 일상을 블로그와 Threads에 남기고 있어요.
         </p>
 
         <ul className={styles.list}>
