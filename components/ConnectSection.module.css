@@ -70,6 +70,7 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: var(--wp-radius-pill);
+  /* 배경·글자색은 채널마다 공식 브랜드 색으로 덮어쓴다 (config/channels.ts) */
   background: var(--wp-color-primary-tint);
   color: var(--wp-color-primary);
   flex-shrink: 0;

@@ -19,10 +19,12 @@ export default function BrandIntro() {
 
       <div className={styles.inner}>
         <div className={styles.text}>
+          {/* 헤더에 이미 WTPP 로고가 있어 여기서 이름을 한 번 더 부르지 않는다.
+              첫 화면에서 크게 읽혀야 하는 건 브랜드 이름이 아니라 "여기서 뭘 하는 곳인지"다. */}
           <h1 id="brand-intro-heading" className={styles.heading}>
-            WTPP PLAY
+            아이와 함께 놀면서 배우는
+            <span className={styles.headingAccent}>학습 놀이터</span>
           </h1>
-          <p className={styles.copy}>아이와 함께 놀면서 배우는 학습 놀이터</p>
         </div>
 
         <div className={styles.mascotWrap}>

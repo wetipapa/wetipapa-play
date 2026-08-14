@@ -19,6 +19,11 @@ export interface WetiChannel {
   url?: string;
   ctaLabel: string;
   icon: ComponentType<{ className?: string }>;
+  /**
+   * 아이콘 배지의 색. 공식 마크는 각 브랜드가 쓰는 조합으로 둬야 한눈에 알아본다
+   * (네이버는 초록 바탕에 흰 N, Threads는 검정 바탕에 흰 글리프).
+   */
+  brand: { bg: string; fg: string };
   order: number;
 }
 
@@ -30,6 +35,7 @@ export const channels: WetiChannel[] = [
     url: "https://blog.naver.com/wetipapa",
     ctaLabel: "블로그 놀러가기",
     icon: BlogIcon,
+    brand: { bg: "#03C75A", fg: "#ffffff" },
     order: 1,
   },
   {
@@ -39,6 +45,7 @@ export const channels: WetiChannel[] = [
     url: "https://www.threads.com/@wetipapa",
     ctaLabel: "Threads 팔로우",
     icon: ThreadsIcon,
+    brand: { bg: "#000000", fg: "#ffffff" },
     order: 2,
   },
 ];

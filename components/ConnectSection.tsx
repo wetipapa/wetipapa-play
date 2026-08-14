@@ -33,7 +33,10 @@ export default function ConnectSection() {
                   className={styles.card}
                   aria-label={`${channel.name}. ${channel.reason}. 새 탭에서 열림`}
                 >
-                  <span className={styles.iconWrap}>
+                  <span
+                    className={styles.iconWrap}
+                    style={{ background: channel.brand.bg, color: channel.brand.fg }}
+                  >
                     <Icon className={styles.icon} />
                   </span>
                   <span className={styles.text}>

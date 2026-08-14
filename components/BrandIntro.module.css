@@ -21,15 +21,18 @@
 }
 
 .heading {
-  margin: 0 0 0.6rem;
+  margin: 0;
   font-family: var(--wp-font-display);
   font-size: var(--wp-text-hero);
-  line-height: 1.05;
+  line-height: 1.2;
   color: var(--wp-color-ink);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.6rem;
+  word-break: keep-all;
+}
+
+/* 두 번째 줄을 브랜드 색으로 받아 "놀이터"에 시선이 멎게 한다 */
+.headingAccent {
+  display: block;
+  color: var(--wp-color-primary-bright);
 }
 
 .copy {
@@ -63,18 +66,19 @@
   opacity: 0.5;
 }
 
+/* 제목이 두 줄이라 글자 폭이 넓다. 반짝임이 글자 위에 올라타지 않게 가장자리로 밀어 둔다. */
 .sparkleA {
   width: 1.6rem;
   height: 1.6rem;
-  top: 12%;
-  left: 6%;
+  top: 4%;
+  left: 2%;
 }
 
 .sparkleB {
   width: 1.1rem;
   height: 1.1rem;
-  bottom: 18%;
-  left: 30%;
+  bottom: 14%;
+  left: 8%;
   color: var(--wp-color-clock);
   opacity: 0.35;
 }
@@ -82,8 +86,8 @@
 .sparkleC {
   width: 1.3rem;
   height: 1.3rem;
-  top: 20%;
-  right: 32%;
+  top: 6%;
+  right: 4%;
   color: var(--wp-color-racing);
   opacity: 0.3;
 }

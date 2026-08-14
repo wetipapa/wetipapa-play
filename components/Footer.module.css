@@ -12,11 +12,9 @@
   padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
+/* 브랜드 한 열만 남았다. 서비스·채널 링크는 본문에 이미 있어서 여기서 걷어냈다. */
 .top {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: clamp(1.5rem, 4vw, 2.5rem);
-  padding-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid rgba(244, 236, 228, 0.16);
 }
 
