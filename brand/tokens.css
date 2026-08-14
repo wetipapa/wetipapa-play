@@ -27,6 +27,17 @@
   --wp-color-primary-tint: #ffe4c2; /* 배지·연한 배경 */
   --wp-color-primary-ink: #33241c; /* primary-tint 위에 쓰는 글자색 */
 
+  /* ── 브랜드 네이비 (아이덴티티 주색) ────────────────────────── */
+  /* brand-assets/BRAND_GUIDE.md §5.2. 컬러 CI의 배경색이자 브랜드 주색 1번.
+     화면에서 대비가 가장 안전한 색이다 (흰 12.49:1 / 크림 11.75:1).
+     공식·신뢰의 자리에 쓴다: 푸터, 포커스 링, 공식 관계 표기.
+     본문 잉크(--wp-color-ink)를 네이비로 바꾸지 않는다 — 크림 배경과 함께
+     차가워져 7세 대상의 따뜻한 인상이 깨진다. */
+  --wp-color-navy: #013075; /* 공식 표기·푸터 배경·포커스 링 */
+  --wp-color-navy-bright: #1c4c9c; /* 네이비 위 보조 강조 (흰 배경 8.19:1) */
+  --wp-color-navy-tint: #dde6f5; /* 연한 네이비 배경 (배지 등) */
+  --wp-color-navy-ink: #012354; /* navy-tint 위에 쓰는 글자색 (12.20:1) */
+
   /* ── 서비스별 확장 컬러 ────────────────────────────────────── */
   /* 웨티 보카 – 차분하고 신뢰감 있는 하늘빛 블루 */
   --wp-color-voca: #2670c4;
@@ -71,8 +82,9 @@
   --wp-shadow-card-hover: 0 16px 34px rgba(51, 36, 28, 0.16);
   --wp-shadow-pop: 0 6px 14px rgba(51, 36, 28, 0.14);
 
-  /* 접근성 포커스 링: 어떤 배경 색 위에서도 보이도록 흰 후광 + 진한 외곽선 */
-  --wp-focus-ring: 0 0 0 3px var(--wp-color-surface), 0 0 0 6px var(--wp-color-ink);
+  /* 접근성 포커스 링: 어떤 배경 색 위에서도 보이도록 흰 후광 + 진한 외곽선.
+     외곽선은 브랜드 네이비를 쓴다 (크림 배경 11.75:1). */
+  --wp-focus-ring: 0 0 0 3px var(--wp-color-surface), 0 0 0 6px var(--wp-color-navy);
 
   --wp-space-xs: 0.5rem;
   --wp-space-sm: 0.875rem;

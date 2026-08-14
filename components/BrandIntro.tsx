@@ -5,8 +5,10 @@ import styles from "./BrandIntro.module.css";
 
 /**
  * 첫 화면 상단 브랜드 소개 영역.
- * 웨티아빠 원본 마스코트 이미지를 이 페이지에서 유일하게, 가장 크고
+ * 웨티아빠와 웨티가 함께 있는 확정 컷을 이 페이지에서 유일하게, 가장 크고
  * 의미 있게 사용하는 자리다 (장식으로 반복 사용하지 않는다).
+ * "아빠와 아이가 함께 배운다"가 첫 화면에서 바로 읽혀야 하는 자리라 단독
+ * 캐릭터가 아니라 합본 컷을 쓴다.
  */
 export default function BrandIntro() {
   return (
@@ -28,10 +30,10 @@ export default function BrandIntro() {
         <div className={styles.mascotWrap}>
           <Image
             src={mascotHero}
-            alt="엄지를 척 들며 반갑게 인사하는 웨티아빠 캐릭터"
+            alt="나란히 서서 웃고 있는 웨티아빠와 아들 웨티 캐릭터"
             priority
             className={styles.mascotImg}
-            sizes="(max-width: 640px) 60vw, 320px"
+            sizes="(max-width: 640px) 128px, 176px"
           />
         </div>
       </div>

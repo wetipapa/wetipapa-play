@@ -1,5 +1,7 @@
+/* 배경은 브랜드 네이비. 컬러 CI의 배경색과 같은 색이라 푸터가 공식 표식 자리로 읽힌다.
+   본문 글자 #f4ece4 대비 10.69:1, 보조 글자 5.28:1, 오렌지 링크 hover 5.18:1 (모두 AA). */
 .footer {
-  background: var(--wp-color-ink);
+  background: var(--wp-color-navy);
   color: #f4ece4;
   padding: clamp(2rem, 5vw, 2.75rem) 0 1.5rem;
 }

@@ -1,12 +1,26 @@
 // WETI PLAY 브랜드 자산 생성 스크립트
 // -----------------------------------------------------------------------
-// 원본 웨티아빠 캐릭터(OGQ 스티커 제출본)에서 마스코트를 오려내고,
-// 파비콘 / 앱 아이콘 / OG 이미지를 만들어 낸다.
+// brand/source/ 의 확정 원본에서 마스코트 히어로 / 파비콘 / 앱 아이콘 /
+// OG 이미지를 만들어 낸다.
 // 이 스크립트는 "빌드 타임/로컬 1회성 생성기"이며, 결과물(PNG)만 저장소에
 // 커밋되어 사용된다. 배포 서버가 폰트를 갖고 있는지 여부와 무관하게
 // 항상 동일한 결과가 보장된다.
 //
 // 실행: npm run generate:brand
+//
+// 원본의 출처
+// -----------------------------------------------------------------------
+// brand/source/ 의 두 파일은 Wetipapa/brand-assets/confirmed/ 에서 복사해 온
+// 사본이다. 원본을 고칠 일이 있으면 brand-assets 쪽을 고치고 다시 복사한다.
+// (각 프로젝트는 독립 배포되므로 brand-assets를 코드에서 직접 참조할 수 없다.)
+//
+//   wetipapa_symbol_color_1024.png   confirmed/ci-color/          공식 컬러 심벌
+//   wetipapa_weti_together_01.png    confirmed/character-fullbody/ 아빠+웨티 합본 컷
+//
+// 2026-08-14 변경: 파비콘·앱 아이콘의 원본을 OGQ 리액션 스티커(04_approved)에서
+// 공식 컬러 심벌로 교체했다. 상위 문서(brand-assets/BRAND_GUIDE.md §4.3·§6.1)가
+// 공식 표식 자리에 리액션 캐릭터를 단독으로 쓰지 않기로 정했기 때문이다.
+// 히어로도 같은 이유로 "아빠와 아이가 함께"가 보이는 합본 컷으로 바꿨다.
 import sharp from "sharp";
 import pngToIco from "png-to-ico";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -14,40 +28,34 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const SOURCE = path.join(
-  ROOT,
-  "wetipapa_ogq_submission_v10",
-  "stickers",
-  "04_approved.png"
-);
+const SOURCE_DIR = path.join(ROOT, "brand", "source");
+const SOURCE_SYMBOL = path.join(SOURCE_DIR, "wetipapa_symbol_color_1024.png");
+const SOURCE_TOGETHER = path.join(SOURCE_DIR, "wetipapa_weti_together_01.png");
 const BRAND_ASSETS = path.join(ROOT, "brand", "assets");
 const APP_DIR = path.join(ROOT, "app");
 
 // 브랜드 컬러 (brand/tokens.css 와 동일한 값으로 유지할 것)
 const COLOR_BG_CREAM = "#fff7ea";
 const COLOR_PRIMARY_BRIGHT = "#f0900c";
+const COLOR_NAVY = "#013075";
 const COLOR_INK = "#33241c";
 const COLOR_INK_SOFT = "#6b5b52";
-// 아이콘 배경은 흰색으로 둔다. 원본 스티커가 흰 매트(반투명 가장자리를 흰색과
-// 미리 블렌딩한 상태) 위에서 제작되어, 다른 색 배경에 합성하면 경계에
-// 흰색 헤일로(fringe)가 그대로 드러난다. 원본 디자이너가 대표 이미지
-// (main_240x240.png)에도 흰 배경을 사용한 것과 동일한 처리다.
+// 아이콘 배경은 흰색으로 둔다. 심벌 자체가 네이비 라운드 타일을 갖고 있어서
+// 배경까지 색을 넣으면 타일 경계가 뭉개진다.
 const COLOR_ICON_BG = "#ffffff";
-
-// 원본 스티커(740x640) 안에서 "이건 인정" 캡션 텍스트를 제외한
-// 캐릭터(엄지척 + 반짝임)만의 픽셀 영역. scripts/*(1회성 분석)로 확인함.
-const CHAR_BBOX = { left: 166, top: 15, width: 406, height: 419 };
 
 async function ensureDir(dir) {
   await mkdir(dir, { recursive: true });
 }
 
-async function getCharacterCrop() {
-  return sharp(SOURCE).extract(CHAR_BBOX).png().toBuffer();
+// 투명 여백을 걷어내고 알파가 있는 픽셀 영역만 남긴다.
+// 원본마다 여백이 제각각이라, 크기 계산 전에 항상 이 기준으로 맞춘다.
+async function trimToContent(file) {
+  return sharp(file).trim({ threshold: 1 }).png().toBuffer();
 }
 
 function sparkle(cx, cy, size, fill, opacity = 1) {
-  // 웨티아빠 원본 스티커의 반짝임(✦) 모티프를 본뜬 아주 단순한 4방향 별 도형.
+  // 웨티아빠 공식 심벌의 반짝임(✦) 모티프를 본뜬 아주 단순한 4방향 별 도형.
   const s = size;
   return `<path opacity="${opacity}" fill="${fill}" d="
     M ${cx} ${cy - s}
@@ -58,53 +66,46 @@ function sparkle(cx, cy, size, fill, opacity = 1) {
     Z" />`;
 }
 
-async function buildMascotHero(charCrop) {
-  // 웹에서 그대로 사용할 마스코트 히어로 이미지: 여백만 살짝 트리밍하고
-  // 비율·구도는 원본과 동일하게 유지한다 (얼굴/제스처 잘림 없음).
+async function buildMascotHero() {
+  // 웹에서 그대로 사용할 히어로 이미지: 투명 여백만 걷어내고 비율·구도는
+  // 원본과 동일하게 유지한다 (얼굴/포즈 잘림 없음).
+  // 투명 배경을 유지하는 이유: 히어로가 얹히는 자리가 크림 그라데이션이라
+  // 흰 사각형이 보이면 안 된다. 캐릭터 안쪽은 흰색으로 채워져 있어서
+  // 브라우저 강제 다크모드에서도 흰 실루엣으로 남아 그림이 묻히지 않는다.
+  const trimmed = await trimToContent(SOURCE_TOGETHER);
   const out = path.join(BRAND_ASSETS, "mascot-hero.png");
-  await sharp(charCrop)
-    .png({ compressionLevel: 9, quality: 90 })
-    .toFile(out);
-  console.log("✓ brand/assets/mascot-hero.png");
+  await ensureDir(BRAND_ASSETS);
+  await sharp(trimmed).png({ compressionLevel: 9 }).toFile(out);
+  const meta = await sharp(trimmed).metadata();
+  console.log(`✓ brand/assets/mascot-hero.png (${meta.width}x${meta.height})`);
+  return trimmed;
 }
 
-async function buildIconMaster(charCrop) {
+async function buildIconMaster() {
   const size = 1024;
-  const meta = await sharp(charCrop).metadata();
-  const scale = Math.min((size * 0.82) / meta.width, (size * 0.82) / meta.height);
-  const charW = Math.round(meta.width * scale);
-  const charH = Math.round(meta.height * scale);
-  const resizedChar = await sharp(charCrop).resize(charW, charH).toBuffer();
+  const symbol = await trimToContent(SOURCE_SYMBOL);
+  const meta = await sharp(symbol).metadata();
+
+  // 심벌이 이미 라운드 타일 형태라 별도 프레임을 두르지 않는다.
+  // 탭에서 존재감을 위해 캔버스의 86%까지 키운다.
+  const scale = Math.min((size * 0.86) / meta.width, (size * 0.86) / meta.height);
+  const symW = Math.round(meta.width * scale);
+  const symH = Math.round(meta.height * scale);
+  const resized = await sharp(symbol).resize(symW, symH).toBuffer();
 
   const bg = await sharp({
-    create: {
-      width: size,
-      height: size,
-      channels: 4,
-      background: COLOR_ICON_BG,
-    },
+    create: { width: size, height: size, channels: 4, background: COLOR_ICON_BG },
   })
     .png()
     .toBuffer();
 
-  const left = Math.round((size - charW) / 2);
-  const top = Math.round((size - charH) / 2 + size * 0.03);
-
-  // 흰 배경만으로는 탭/즐겨찾기 목록에서 존재감이 약하므로, 캐릭터 가장자리와
-  // 떨어진(=흰색 프린지가 보이지 않는) 안쪽에 브랜드 컬러 라운드 프레임을 두른다.
-  const frameInset = 56;
-  const frameRadius = 220;
-  const frameStroke = 40;
-  const frameSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
-    <rect x="${frameInset}" y="${frameInset}" width="${size - frameInset * 2}" height="${size - frameInset * 2}"
-      rx="${frameRadius}" fill="none" stroke="${COLOR_PRIMARY_BRIGHT}" stroke-width="${frameStroke}" />
-  </svg>`;
-  const frameBuf = await sharp(Buffer.from(frameSvg)).png().toBuffer();
-
   const composed = await sharp(bg)
     .composite([
-      { input: frameBuf, left: 0, top: 0 },
-      { input: resizedChar, left, top },
+      {
+        input: resized,
+        left: Math.round((size - symW) / 2),
+        top: Math.round((size - symH) / 2),
+      },
     ])
     .png()
     .toBuffer();
@@ -147,13 +148,13 @@ async function buildFavicons(iconMasterBuffer) {
   console.log("✓ app/favicon.ico (16/32/48)");
 }
 
-async function buildOpenGraphImage(charCrop) {
+async function buildOpenGraphImage(heroBuffer) {
   const width = 1200;
   const height = 630;
-  const meta = await sharp(charCrop).metadata();
-  const ogCharH = Math.round(height * 0.92);
+  const meta = await sharp(heroBuffer).metadata();
+  const ogCharH = Math.round(height * 0.9);
   const ogCharW = Math.round(meta.width * (ogCharH / meta.height));
-  const mascotBuf = await sharp(charCrop).resize(ogCharW, ogCharH).toBuffer();
+  const mascotBuf = await sharp(heroBuffer).resize(ogCharW, ogCharH).toBuffer();
 
   const svgBg = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
@@ -173,12 +174,12 @@ async function buildOpenGraphImage(charCrop) {
     <text x="76" y="288" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="40" fill="${COLOR_PRIMARY_BRIGHT}">웨티플레이</text>
     <text x="76" y="352" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">아이와 함께 놀면서 배우는</text>
     <text x="76" y="392" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">웨티아빠 학습 놀이터</text>
-    <text x="76" y="452" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="22" fill="${COLOR_INK}">WETI PLAY by 웨티아빠</text>
+    <text x="76" y="452" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="22" fill="${COLOR_NAVY}">WETI PLAY by 웨티아빠</text>
   </svg>`;
 
   const bgBuffer = await sharp(Buffer.from(svgBg)).png().toBuffer();
 
-  const left = width - ogCharW - 40;
+  const left = width - ogCharW - 56;
   const top = height - ogCharH;
 
   await ensureDir(APP_DIR);
@@ -191,11 +192,10 @@ async function buildOpenGraphImage(charCrop) {
 
 async function main() {
   await ensureDir(BRAND_ASSETS);
-  const charCrop = await getCharacterCrop();
-  await buildMascotHero(charCrop);
-  const iconMaster = await buildIconMaster(charCrop);
+  const hero = await buildMascotHero();
+  const iconMaster = await buildIconMaster();
   await buildFavicons(iconMaster);
-  await buildOpenGraphImage(charCrop);
+  await buildOpenGraphImage(hero);
   console.log("\n브랜드 자산 생성 완료.");
 }
 

@@ -25,8 +25,9 @@
   margin: 0 0 0.85rem;
   padding: 0.3rem 0.85rem;
   border-radius: var(--wp-radius-pill);
-  background: var(--wp-color-primary-tint);
-  color: var(--wp-color-primary);
+  /* 'WETI PLAY by 웨티아빠'는 공식 관계 표기다. 브랜드 네이비를 쓴다 (9.94:1). */
+  background: var(--wp-color-navy-tint);
+  color: var(--wp-color-navy);
   font-family: var(--wp-font-body);
   font-weight: 700;
   font-size: var(--wp-text-small);
@@ -59,9 +60,12 @@
   line-height: 1.6;
 }
 
+/* 합본 컷은 전신이라 세로가 길다(796x1134, 가로:세로 = 0.70).
+   가로 기준으로 크기를 주면 첫 화면이 세로로 길어져 서비스 카드가 접힘선 아래로
+   밀린다. 이전 마스코트(거의 정사각)와 비슷한 높이가 되도록 가로 폭을 줄여 잡는다. */
 .mascotWrap {
   flex-shrink: 0;
-  width: clamp(9.5rem, 24vw, 15rem);
+  width: clamp(7rem, 17vw, 11rem);
   filter: drop-shadow(0 14px 20px rgba(51, 36, 28, 0.16));
 }
 
