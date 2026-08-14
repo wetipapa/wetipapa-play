@@ -27,6 +27,8 @@ export interface WetiChannel {
   order: number;
 }
 
+// 두 채널의 역할을 나눠 둔다. 같은 말을 다르게 쓰면 어느 쪽을 눌러야 할지 알 수 없다.
+// 블로그는 남기는 곳(기록·일상), Threads는 주고받는 곳(속보·소통).
 export const channels: WetiChannel[] = [
   {
     id: "blog",
@@ -41,7 +43,7 @@ export const channels: WetiChannel[] = [
   {
     id: "threads",
     name: "웨티아빠 Threads",
-    reason: "웨티와의 일상과 새 게임 소식을 가장 빠르게 만나보세요",
+    reason: "웨티아빠 소식을 가장 빠르게 받고 댓글로 소통해요",
     url: "https://www.threads.com/@wetipapa",
     ctaLabel: "Threads 팔로우",
     icon: ThreadsIcon,
