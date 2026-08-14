@@ -30,16 +30,25 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  max-width: 40rem;
+  max-width: 46rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: 1rem;
+  /* 카드 높이를 서로 맞춘다. 글자 수가 달라 한쪽만 길어지면 나란히 놓았을 때 어긋나 보인다 */
+  align-items: stretch;
 }
 
+/*
+ * 아이콘 + 이름·설명이 윗줄, 바로가기 문구가 아랫줄.
+ * 셋을 한 줄에 늘어놓으면 가운데 글자 칸이 좁아져 이름까지 두 줄로 접히고,
+ * 카드마다 접히는 줄 수가 달라져 높이가 어긋난다.
+ */
 .card {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.75rem;
   padding: 1.1rem 1.25rem;
   border-radius: var(--wp-radius-md);
   background: var(--wp-color-surface);
@@ -70,6 +79,9 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: var(--wp-radius-pill);
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
   /* 배경·글자색은 채널마다 공식 브랜드 색으로 덮어쓴다 (config/channels.ts) */
   background: var(--wp-color-primary-tint);
   color: var(--wp-color-primary);
@@ -82,10 +94,12 @@
 }
 
 .text {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  flex-grow: 1;
   min-width: 0;
 }
 
@@ -94,13 +108,15 @@
   font-weight: 700;
   font-size: 0.98rem;
   color: var(--wp-color-ink);
+  word-break: keep-all;
 }
 
 .reason {
   font-family: var(--wp-font-body);
   font-size: 0.82rem;
   color: var(--wp-color-ink-soft);
-  line-height: 1.4;
+  line-height: 1.5;
+  word-break: keep-all;
 }
 
 .cta {
@@ -108,8 +124,19 @@
 }
 
 @media (min-width: 560px) {
+  /* 바로가기 문구가 보이는 폭에서만 아랫줄을 만든다.
+     좁은 화면에서는 문구를 숨기므로 줄을 남겨두면 카드 아래가 빈 채로 뜬다 */
+  .card {
+    grid-template-rows: auto 1fr;
+  }
+
   .cta {
     display: inline-flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    /* 두 카드의 바로가기 문구가 같은 높이에 오도록 아래쪽에 붙인다 */
+    align-self: end;
+    justify-self: start;
     align-items: center;
     gap: 0.25rem;
     font-family: var(--wp-font-body);
