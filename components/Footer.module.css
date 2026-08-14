@@ -26,14 +26,6 @@
   color: #f4ece4;
 }
 
-.brandLine {
-  margin: 0.75rem 0 0.35rem;
-  font-family: var(--wp-font-body);
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #f4ece4;
-}
-
 .desc {
   margin: 0;
   font-family: var(--wp-font-body);
@@ -42,39 +34,13 @@
   line-height: 1.5;
 }
 
-.colTitle {
-  margin: 0 0 0.75rem;
+.privacyNote {
+  margin: 0.4rem 0 0;
   font-family: var(--wp-font-body);
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: rgba(244, 236, 228, 0.65);
-}
-
-.linkList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.linkList a {
-  font-family: var(--wp-font-body);
-  font-size: 0.9rem;
-  color: #f4ece4;
-  text-decoration: none;
-}
-
-.linkList a:hover {
-  color: var(--wp-color-primary-bright);
-  text-decoration: underline;
-}
-
-.linkList a:focus-visible {
-  outline: 2px solid var(--wp-color-primary-bright);
-  outline-offset: 3px;
-  border-radius: 4px;
+  font-size: var(--wp-text-small);
+  color: rgba(244, 236, 228, 0.72);
+  line-height: 1.5;
+  word-break: keep-all;
 }
 
 .copyright {
