@@ -19,12 +19,10 @@ export default function BrandIntro() {
 
       <div className={styles.inner}>
         <div className={styles.text}>
-          <p className={styles.relation}>WETI PLAY by 웨티아빠</p>
           <h1 id="brand-intro-heading" className={styles.heading}>
-            WETI PLAY
-            <span className={styles.headingKo}>웨티플레이</span>
+            WTPP PLAY
           </h1>
-          <p className={styles.copy}>아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터</p>
+          <p className={styles.copy}>아이와 함께 놀면서 배우는 학습 놀이터</p>
         </div>
 
         <div className={styles.mascotWrap}>

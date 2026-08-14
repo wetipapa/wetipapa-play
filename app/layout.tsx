@@ -18,7 +18,7 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 const siteUrl = "https://play.wetipapa.com";
-const title = "WETI PLAY(웨티플레이) - 웨티아빠 학습 놀이터";
+const title = "WTPP PLAY - 아이와 함께 놀면서 배우는 학습 놀이터";
 const description =
   "아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터. 웨티 보카, 웨티 레이싱, 웨티 시계탐험대를 한곳에서 만나보세요.";
 
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: "%s | WETI PLAY",
+    template: "%s | WTPP PLAY",
   },
   description,
   keywords: [
-    "웨티플레이",
-    "WETI PLAY",
+    "WTPP",
+    "WTPP PLAY",
     "웨티아빠",
     "어린이 학습",
     "영어 단어장",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: siteUrl,
-    siteName: "WETI PLAY",
+    siteName: "WTPP PLAY",
     title,
     description,
   },

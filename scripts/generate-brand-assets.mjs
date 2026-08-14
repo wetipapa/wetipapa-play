@@ -1,4 +1,4 @@
-// WETI PLAY 브랜드 자산 생성 스크립트
+// WTPP PLAY 브랜드 자산 생성 스크립트
 // -----------------------------------------------------------------------
 // brand/source/ 의 확정 원본에서 마스코트 히어로 / 파비콘 / 앱 아이콘 /
 // OG 이미지를 만들어 낸다.
@@ -14,7 +14,7 @@
 // 사본이다. 원본을 고칠 일이 있으면 brand-assets 쪽을 고치고 다시 복사한다.
 // (각 프로젝트는 독립 배포되므로 brand-assets를 코드에서 직접 참조할 수 없다.)
 //
-//   wetipapa_symbol_color_1024.png   confirmed/ci-color/          공식 컬러 심벌
+//   wtpp_symbol_color.png            confirmed/ci/                WTPP 대표 심벌
 //   wetipapa_weti_together_01.png    confirmed/character-fullbody/ 아빠+웨티 합본 컷
 //
 // 2026-08-14 변경: 파비콘·앱 아이콘의 원본을 OGQ 리액션 스티커(04_approved)에서
@@ -29,7 +29,8 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const SOURCE_DIR = path.join(ROOT, "brand", "source");
-const SOURCE_SYMBOL = path.join(SOURCE_DIR, "wetipapa_symbol_color_1024.png");
+// 대표 CI가 WTPP로 바뀌면서 파비콘·앱 아이콘·OG가 모두 WTPP 마스터 심벌을 쓴다.
+const SOURCE_SYMBOL = path.join(SOURCE_DIR, "wtpp_symbol_color.png");
 const SOURCE_TOGETHER = path.join(SOURCE_DIR, "wetipapa_weti_together_01.png");
 const BRAND_ASSETS = path.join(ROOT, "brand", "assets");
 const APP_DIR = path.join(ROOT, "app");
@@ -171,11 +172,10 @@ async function buildOpenGraphImage(heroBuffer) {
     ${sparkle(150, 110, 26, COLOR_PRIMARY_BRIGHT, 0.9)}
     ${sparkle(1000, 470, 20, "#7C4FE0", 0.55)}
     ${sparkle(210, 470, 16, "#C23C0C", 0.5)}
-    <text x="72" y="230" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="82" fill="${COLOR_INK}">WETI PLAY</text>
-    <text x="76" y="288" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="40" fill="${COLOR_PRIMARY_BRIGHT}">웨티플레이</text>
-    <text x="76" y="352" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">아이와 함께 놀면서 배우는</text>
-    <text x="76" y="392" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">웨티아빠 학습 놀이터</text>
-    <text x="76" y="452" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="22" fill="${COLOR_NAVY}">WETI PLAY by 웨티아빠</text>
+    <text x="72" y="238" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="86" fill="${COLOR_NAVY}">WTPP</text>
+    <text x="76" y="300" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="44" fill="${COLOR_PRIMARY_BRIGHT}">PLAY</text>
+    <text x="76" y="368" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">아이와 함께 놀면서 배우는</text>
+    <text x="76" y="408" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">학습 놀이터</text>
   </svg>`;
 
   const bgBuffer = await sharp(Buffer.from(svgBg)).png().toBuffer();

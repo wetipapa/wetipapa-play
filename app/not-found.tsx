@@ -19,7 +19,7 @@ export default function NotFound() {
         <p className={styles.desc}>
           찾으시는 페이지가 없어졌거나 주소가 바뀐 것 같아요.
           <br />
-          아래 버튼을 눌러 WETI PLAY 홈으로 돌아가요.
+          아래 버튼을 눌러 WTPP PLAY 홈으로 돌아가요.
         </p>
         <Link href="/" className={styles.home}>
           처음으로 돌아가기

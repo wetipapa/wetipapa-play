@@ -12,21 +12,12 @@
   box-shadow: var(--wp-focus-ring);
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* 심벌 자체가 네이비 라운드 타일을 갖고 있어서 배경을 따로 깔지 않는다 */
+.symbol {
   width: 2.1rem;
   height: 2.1rem;
-  border-radius: var(--wp-radius-pill);
-  background: var(--wp-color-primary-bright);
-  color: #fff;
   flex-shrink: 0;
-}
-
-.badgeIcon {
-  width: 1.15rem;
-  height: 1.15rem;
+  object-fit: contain;
 }
 
 .wordmark {
@@ -39,31 +30,30 @@
 .en {
   font-family: var(--wp-font-display);
   font-size: 1.15rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   color: currentColor;
 }
 
-.ko {
-  font-family: var(--wp-font-body);
-  font-weight: 700;
-  font-size: 0.8rem;
+/* 서비스 표기는 대표 워드마크보다 한 단계 작게 — 위계가 눈에 보여야 한다 */
+.service {
+  font-family: var(--wp-font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
   color: currentColor;
   opacity: 0.72;
 }
 
-/* compact: 한글 서브 워드마크를 숨기고 아이콘+영문만 */
-.compact .ko {
+/* compact: 서비스 표기를 숨기고 심벌 + WTPP 워드마크만 */
+.compact .service {
   display: none;
 }
 
-/* mono: 단색 버전 — 배지도 currentColor를 그대로 물려받게 */
-.mono .badge {
-  background: transparent;
-  color: currentColor;
-  border: 2px solid currentColor;
+.compact .symbol {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .mono .en,
-.mono .ko {
+.mono .service {
   color: currentColor;
 }

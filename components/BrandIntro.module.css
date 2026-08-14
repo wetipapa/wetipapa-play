@@ -20,19 +20,6 @@
   max-width: 34rem;
 }
 
-.relation {
-  display: inline-block;
-  margin: 0 0 0.85rem;
-  padding: 0.3rem 0.85rem;
-  border-radius: var(--wp-radius-pill);
-  /* 'WETI PLAY by 웨티아빠'는 공식 관계 표기다. 브랜드 네이비를 쓴다 (9.94:1). */
-  background: var(--wp-color-navy-tint);
-  color: var(--wp-color-navy);
-  font-family: var(--wp-font-body);
-  font-weight: 700;
-  font-size: var(--wp-text-small);
-}
-
 .heading {
   margin: 0 0 0.6rem;
   font-family: var(--wp-font-display);
@@ -43,13 +30,6 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.6rem;
-}
-
-.headingKo {
-  font-family: var(--wp-font-body);
-  font-weight: 700;
-  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
-  color: var(--wp-color-primary-bright);
 }
 
 .copy {

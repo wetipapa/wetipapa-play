@@ -14,8 +14,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brandCol}>
             <Logo variant="compact" className={styles.footerLogo} />
-            <p className={styles.brandLine}>WETI PLAY by 웨티아빠</p>
-            <p className={styles.desc}>아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터</p>
+            <p className={styles.desc}>아이와 함께 놀면서 배우는 학습 놀이터</p>
           </div>
 
           {services.length > 0 && (
@@ -47,7 +46,7 @@ export default function Footer() {
           )}
         </div>
 
-        <p className={styles.copyright}>© {year} 웨티아빠. WETI PLAY.</p>
+        <p className={styles.copyright}>© {year} WTPP</p>
       </div>
     </footer>
   );

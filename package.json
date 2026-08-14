@@ -2,7 +2,7 @@
   "name": "wetipapa-play",
   "version": "1.0.0",
   "private": true,
-  "description": "WETI PLAY(웨티플레이) - 웨티아빠 학습 서비스 통합 허브",
+  "description": "WTPP PLAY - 웨티아빠 학습 서비스 통합 허브",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
