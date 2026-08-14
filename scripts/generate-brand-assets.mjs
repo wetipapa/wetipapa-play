@@ -87,8 +87,9 @@ async function buildIconMaster() {
   const meta = await sharp(symbol).metadata();
 
   // 심벌이 이미 라운드 타일 형태라 별도 프레임을 두르지 않는다.
-  // 탭에서 존재감을 위해 캔버스의 86%까지 키운다.
-  const scale = Math.min((size * 0.86) / meta.width, (size * 0.86) / meta.height);
+  // 캔버스의 96%까지 키운다. 여백을 더 두면 16~32px 파비콘에서 두 얼굴이 뭉개지고,
+  // iOS 홈 화면에서도 다른 앱 아이콘보다 작아 보인다.
+  const scale = Math.min((size * 0.96) / meta.width, (size * 0.96) / meta.height);
   const symW = Math.round(meta.width * scale);
   const symH = Math.round(meta.height * scale);
   const resized = await sharp(symbol).resize(symW, symH).toBuffer();
