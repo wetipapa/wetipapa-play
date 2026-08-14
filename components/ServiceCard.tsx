@@ -17,9 +17,15 @@ export default function ServiceCard({ service }: { service: WetiService }) {
 
   const content = (
     <>
-      <div className={styles.topRow}>
+      {/* 아이콘을 따로 한 줄 쓰면 카드가 세로로 길어지고 그만큼 빈 자리가 는다.
+          아이콘 옆에 이름과 한 줄 소개를 붙여 한 덩어리로 읽히게 한다. */}
+      <div className={styles.head}>
         <span className={styles.iconWrap}>
           <Icon className={styles.icon} />
+        </span>
+        <span className={styles.headText}>
+          <h3 className={styles.name}>{service.name}</h3>
+          <p className={styles.tagline}>{service.tagline}</p>
         </span>
         {badgeLabel && (
           <span
@@ -30,12 +36,6 @@ export default function ServiceCard({ service }: { service: WetiService }) {
             {badgeLabel}
           </span>
         )}
-      </div>
-
-      <div className={styles.body}>
-        <h3 className={styles.name}>{service.name}</h3>
-        <p className={styles.tagline}>{service.tagline}</p>
-        <p className={styles.description}>{service.description}</p>
       </div>
 
       <span className={isLive ? styles.cta : styles.ctaDisabled}>

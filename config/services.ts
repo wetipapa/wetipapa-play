@@ -32,10 +32,13 @@ export interface WetiService {
   name: string;
   /** 영문/보조 표기 (선택) */
   nameEn?: string;
-  /** 카드에 크게 보이는 한 줄 소개 (아이 눈높이) */
+  /**
+   * 카드에 보이는 한 줄 소개.
+   * 허브는 고르는 곳이라 이 한 줄이면 된다. 자세한 설명은 각 서비스 첫 화면이 맡는다.
+   * 예전에는 아래에 긴 설명이 하나 더 있었는데, 태그라인을 풀어 쓴 말이라
+   * 카드 네 개를 훑는 자리에서는 읽히지 않았다.
+   */
   tagline: string;
-  /** 부모를 위한 조금 더 자세한 설명 */
-  description: string;
   /** 실제 서비스 URL. status가 'coming-soon'이면 없어도 된다 */
   url?: string;
   /** 카드의 시작 버튼 문구 (예: 단어 공부 시작) */
@@ -55,8 +58,6 @@ export const services: WetiService[] = [
     name: "웨티 보카",
     nameEn: "WETI VOCA",
     tagline: "사진으로 만드는 나만의 영어단어장",
-    description:
-      "내가 찍은 사진으로 영어 단어카드를 만들고, 다양한 유형의 테스트로 재미있게 복습해요.",
     url: "https://voca.wetipapa.com",
     ctaLabel: "단어 공부 시작",
     status: "live",
@@ -71,8 +72,6 @@ export const services: WetiService[] = [
     name: "웨티 레이싱",
     nameEn: "WETI RACING",
     tagline: "구구단을 풀고 부스터로 달려요",
-    description:
-      "구구단 문제를 빠르게 풀수록 부스터가 터져요! 신나는 레이싱과 함께 구구단이 저절로 외워져요.",
     url: "https://racing.wetipapa.com",
     ctaLabel: "레이스 시작",
     status: "live",
@@ -89,8 +88,6 @@ export const services: WetiService[] = [
     name: "웨티 구구단 팡팡",
     nameEn: "WETI POP",
     tagline: "하늘에서 내려오는 구구단 풍선을 팡팡!",
-    description:
-      "하늘에서 구구단 풍선이 둥둥 내려와요. 답을 맞히면 웨티가 다트를 쏴서 팡! 터뜨려요. 틀린 문제는 다시 나와서 저절로 익혀져요.",
     url: "https://pop.wetipapa.com",
     ctaLabel: "풍선 터뜨리기",
     status: "live",
@@ -105,8 +102,6 @@ export const services: WetiService[] = [
     name: "웨티 시계탐험대",
     nameEn: "WETI CLOCK",
     tagline: "시곗바늘을 움직이며 시간을 배워요",
-    description:
-      "직접 시곗바늘을 돌려보며 몇 시 몇 분인지 익히는 탐험 게임이에요. 놀다 보면 시계 읽기가 쉬워져요.",
     url: "https://clock.wetipapa.com",
     ctaLabel: "시간 모험 시작",
     status: "live",
