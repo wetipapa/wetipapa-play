@@ -6,7 +6,7 @@
 //
 // 자세한 추가 예시는 README.md의 "새 서비스 추가하기" 항목을 참고할 것.
 import type { ComponentType } from "react";
-import { ClockIcon, RacingIcon, VocaIcon } from "@/components/icons";
+import { ClockIcon, PopIcon, RacingIcon, VocaIcon } from "@/components/icons";
 
 /** 서비스 카드에 붙는 선택적 배지 */
 export type ServiceBadge = "NEW" | "추천" | "준비중";
@@ -20,7 +20,7 @@ export type ServiceStatus = "live" | "coming-soon";
  * 세 변수 세트와 짝을 이룬다. 새 계열 색이 필요하면 tokens.css에 세트를
  * 하나 추가하고 여기에 같은 이름의 키를 쓰면 된다.
  */
-export type ServiceAccent = "voca" | "racing" | "clock" | "neutral" | string;
+export type ServiceAccent = "voca" | "racing" | "pop" | "clock" | "neutral" | string;
 
 /** 향후 영어/수학/생활학습/게임 등으로 서비스가 늘어날 때 쓰는 분류 태그 */
 export type ServiceCategory = "영어" | "수학" | "생활학습" | "게임" | string;
@@ -76,11 +76,29 @@ export const services: WetiService[] = [
     url: "https://racing.wetipapa.com",
     ctaLabel: "레이스 시작",
     status: "live",
-    badge: "NEW",
     category: "수학",
     accent: "racing",
     icon: RacingIcon,
     order: 2,
+  },
+  {
+    // 레이싱과 같은 구구단을 다루지만 노는 방식이 다르다 — 레이싱은 트랙을 달리는 승부,
+    // 팡팡은 내려오는 풍선을 터뜨리는 것. 한 줄 설명은 무엇을 하는 게임인지부터 보여주고,
+    // 틀린 문제 반복은 설명에서 뒤에 붙인다.
+    id: "pop",
+    name: "웨티 구구단 팡팡",
+    nameEn: "WETI POP",
+    tagline: "하늘에서 내려오는 구구단 풍선을 팡팡!",
+    description:
+      "하늘에서 구구단 풍선이 둥둥 내려와요. 답을 맞히면 웨티가 다트를 쏴서 팡! 터뜨려요. 틀린 문제는 다시 나와서 저절로 익혀져요.",
+    url: "https://pop.wetipapa.com",
+    ctaLabel: "풍선 터뜨리기",
+    status: "live",
+    badge: "NEW",
+    category: "수학",
+    accent: "pop",
+    icon: PopIcon,
+    order: 3,
   },
   {
     id: "clock",
@@ -95,7 +113,7 @@ export const services: WetiService[] = [
     category: "생활학습",
     accent: "clock",
     icon: ClockIcon,
-    order: 3,
+    order: 4,
   },
 ];
 

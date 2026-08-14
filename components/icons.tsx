@@ -83,6 +83,36 @@ export function RacingIcon({ className }: IconProps) {
   );
 }
 
+/** 웨티 구구단 팡팡 – 수식이 적힌 풍선과 다트 */
+export function PopIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      {/* 뒤쪽 작은 풍선 */}
+      <ellipse cx="46" cy="20" rx="9" ry="10" fill="currentColor" opacity="0.18" />
+      <path d="M46 30 v5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
+
+      {/* 앞쪽 큰 풍선 */}
+      <ellipse cx="26" cy="26" rx="15" ry="17" fill="currentColor" opacity="0.16" />
+      <ellipse cx="26" cy="26" rx="15" ry="17" fill="none" stroke="currentColor" strokeWidth="3" />
+      <path d="M26 43 l-3 4 h6 z" fill="currentColor" />
+      {/* 곱셈 기호 */}
+      <path d="M21 21 L31 31 M31 21 L21 31" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
+
+      {/* 터진 조각 */}
+      <path d="M44 34 l4 5 M52 32 l5 2 M47 26 l6 -3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.55" />
+
+      {/* 다트 */}
+      <path d="M8 56 L20 46" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M20 46 l7 -3 -3 7 z" fill="currentColor" />
+    </svg>
+  );
+}
+
 /** 웨티 시계탐험대 – 탐험 나침반 느낌의 시계 */
 export function ClockIcon({ className }: IconProps) {
   return (
