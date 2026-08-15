@@ -63,7 +63,6 @@ app/                Next.js App Router (페이지, 레이아웃, 메타데이터
 components/          재사용 UI 컴포넌트 (ServiceCard, Header, Footer 등)
 config/              중앙 데이터 — 서비스 목록 / SNS 채널 목록
 brand/               브랜드 원본 자산 (토큰, 마스코트, 가이드가 참조하는 이미지)
-wetipapa_ogq_submission_v10/   웨티아빠 원본 캐릭터 소스 (수정 금지, 보존용)
 scripts/             브랜드 자산 생성 스크립트
 ```
 
