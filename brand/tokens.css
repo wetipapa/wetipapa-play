@@ -59,6 +59,11 @@
   --wp-color-slice-tint: #fbe4ee;
   --wp-color-slice-ink: #8e1b4c;
 
+  /* 길이 척척 — 청록 */
+  --wp-color-snap: #0f7a80;
+  --wp-color-snap-tint: #dff0f1;
+  --wp-color-snap-ink: #0a565a;
+
   /* 시계탐험대 – 호기심을 자극하는 바이올렛 */
   --wp-color-clock: #7c4fe0;
   --wp-color-clock-tint: #e8dffb;

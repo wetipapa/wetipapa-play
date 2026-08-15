@@ -131,6 +131,21 @@ export function SliceIcon({ className }: IconProps) {
   );
 }
 
+export function SnapIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden="true" focusable="false">
+      {/* 이어 붙인 조각 두 개 — 이 게임이 하는 일이다 */}
+      <rect x="5" y="9" width="17" height="12" rx="3" fill="currentColor" opacity="0.85" />
+      <rect x="24" y="9" width="19" height="12" rx="3" fill="currentColor" opacity="0.4" />
+      {/* 자 — 눈금은 칸의 경계를 짚는다 */}
+      <rect x="5" y="27" width="38" height="12" rx="3" fill="none" stroke="currentColor" strokeWidth="3" />
+      {[12, 19, 26, 33].map((x) => (
+        <path key={x} d={`M${x} 27v${x === 19 || x === 33 ? 7 : 4.5}`} stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+      ))}
+    </svg>
+  );
+}
+
 export function ClockIcon({ className }: IconProps) {
   return (
     <svg
