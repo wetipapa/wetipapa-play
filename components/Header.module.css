@@ -30,3 +30,19 @@
     display: none;
   }
 }
+
+.nav {
+  display: flex;
+  gap: var(--wp-space-md);
+}
+
+.nav a {
+  color: var(--wp-color-ink-soft);
+  font-size: var(--wp-text-small);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--wp-color-ink);
+}

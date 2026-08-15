@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Jua, Noto_Sans_KR } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import AdSense from "@/components/AdSense";
 import "./globals.css";
 
 const jua = Jua({
@@ -78,6 +79,7 @@ export default function RootLayout({
     <html lang="ko" className={`${jua.variable} ${notoSansKr.variable}`}>
       <body>
         {children}
+        <AdSense />
         <Analytics />
       </body>
     </html>

@@ -47,3 +47,30 @@
 .gridItem > :global(div) {
   width: 100%;
 }
+
+/* 카드 아래 안내 페이지로 가는 줄. 카드보다 조용해야 한다 —
+   여기 온 대부분은 바로 놀러 왔고, 읽으려는 부모만 눈에 담으면 된다 */
+.guides {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--wp-space-xs) var(--wp-space-sm);
+  margin: var(--wp-space-lg) 0 0;
+  font-size: var(--wp-text-small);
+}
+
+.guidesLabel {
+  color: var(--wp-color-ink-soft);
+  font-weight: 800;
+}
+
+.guides a {
+  color: var(--wp-color-primary-ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--wp-color-primary-tint);
+}
+
+.guides a:hover {
+  border-bottom-color: var(--wp-color-primary);
+}

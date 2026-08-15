@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "./Logo";
 import styles from "./Footer.module.css";
 
@@ -7,8 +8,8 @@ import styles from "./Footer.module.css";
  * 서비스 목록과 채널 링크는 두지 않는다. 바로 위 본문에 서비스 카드와
  * 채널 카드가 이미 있어서, 같은 링크를 파란 바닥에 한 번 더 늘어놓는 꼴이었다.
  *
- * 문의 창구도 따로 두지 않는다. 블로그와 Threads가 바로 위에 있고 둘 다 댓글·DM이
- * 열려 있다. 답이 도착하는 창구가 이미 있는데 폼을 더 만들면 관리할 곳만 늘어난다.
+ * 대신 **소개·문의·정책 문서로 가는 길**은 여기 둔다. 본문에 없고 여기밖에 없는 링크라
+ * 중복이 아니고, 사이트 맨 아래에서 찾는 것이 사람들이 익숙한 자리다.
  */
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -26,6 +27,13 @@ export default function Footer() {
           </div>
 
         </div>
+
+        <nav className={styles.links} aria-label="사이트 정보">
+          <Link href="/about">소개</Link>
+          <Link href="/contact">문의</Link>
+          <Link href="/privacy">개인정보처리방침</Link>
+          <Link href="/terms">이용약관</Link>
+        </nav>
 
         <p className={styles.copyright}>© {year} WTPP</p>
       </div>
