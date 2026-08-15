@@ -1,4 +1,7 @@
 // WTPP PLAY 브랜드 자산 생성 스크립트
+//
+// OG 이미지는 여기서 만들지 않는다. 여섯 서비스가 같은 규격을 써야 해서
+// brand-assets/tools/build-og.py 한 곳에서 전부 만든다.
 // -----------------------------------------------------------------------
 // brand/source/ 의 확정 원본에서 마스코트 히어로 / 파비콘 / 앱 아이콘 /
 // OG 이미지를 만들어 낸다.
@@ -169,53 +172,11 @@ async function buildFavicons(iconMasterBuffer) {
   console.log("✓ app/favicon.ico (16/32/48)");
 }
 
-async function buildOpenGraphImage(heroBuffer) {
-  const width = 1200;
-  const height = 630;
-  const meta = await sharp(heroBuffer).metadata();
-  const ogCharH = Math.round(height * 0.9);
-  const ogCharW = Math.round(meta.width * (ogCharH / meta.height));
-  const mascotBuf = await sharp(heroBuffer).resize(ogCharW, ogCharH).toBuffer();
-
-  const svgBg = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-    <defs>
-      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#FFF7EA" />
-        <stop offset="100%" stop-color="#FFE4C2" />
-      </linearGradient>
-    </defs>
-    <rect width="${width}" height="${height}" fill="url(#bg)" />
-    <circle cx="1030" cy="120" r="210" fill="#FFE4C2" opacity="0.6" />
-    <circle cx="120" cy="560" r="160" fill="#DCEBFA" opacity="0.55" />
-    ${sparkle(150, 110, 26, COLOR_PRIMARY_BRIGHT, 0.9)}
-    ${sparkle(1000, 470, 20, "#7C4FE0", 0.55)}
-    ${sparkle(210, 470, 16, "#C23C0C", 0.5)}
-    <text x="72" y="238" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="86" fill="${COLOR_NAVY}">WTPP</text>
-    <text x="76" y="300" font-family="Malgun Gothic, sans-serif" font-weight="700" font-size="44" fill="${COLOR_PRIMARY_BRIGHT}">PLAY</text>
-    <text x="76" y="368" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">아이와 함께 놀면서 배우는</text>
-    <text x="76" y="408" font-family="Malgun Gothic, sans-serif" font-weight="400" font-size="30" fill="${COLOR_INK_SOFT}">학습 놀이터</text>
-  </svg>`;
-
-  const bgBuffer = await sharp(Buffer.from(svgBg)).png().toBuffer();
-
-  const left = width - ogCharW - 56;
-  const top = height - ogCharH;
-
-  await ensureDir(APP_DIR);
-  await sharp(bgBuffer)
-    .composite([{ input: mascotBuf, left, top }])
-    .png()
-    .toFile(path.join(APP_DIR, "opengraph-image.png"));
-  console.log("✓ app/opengraph-image.png (1200x630)");
-}
-
 async function main() {
   await ensureDir(BRAND_ASSETS);
-  const hero = await buildMascotHero();
+  await buildMascotHero();
   const iconMaster = await buildIconMaster();
   await buildFavicons(iconMaster);
-  await buildOpenGraphImage(hero);
   console.log("\n브랜드 자산 생성 완료.");
 }
 

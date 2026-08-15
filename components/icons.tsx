@@ -114,6 +114,23 @@ export function PopIcon({ className }: IconProps) {
 }
 
 /** 시계탐험대 – 탐험 나침반 느낌의 시계 */
+/** 분수 쓱싹 — 반으로 갈라진 원과 칼자국 */
+export function SliceIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden="true" focusable="false">
+      <path d="M24 8a16 16 0 0 1 16 16 16 16 0 0 1-16 16z" fill="currentColor" opacity="0.85" />
+      <path
+        d="M24 8a16 16 0 0 0-16 16 16 16 0 0 0 16 16"
+        fill="currentColor"
+        opacity="0.16"
+      />
+      <circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" strokeWidth="3" />
+      <path d="M24 6v36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M9 41 39 11" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" opacity="0.55" />
+    </svg>
+  );
+}
+
 export function ClockIcon({ className }: IconProps) {
   return (
     <svg

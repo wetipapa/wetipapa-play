@@ -6,7 +6,7 @@
 //
 // 자세한 추가 예시는 README.md의 "새 서비스 추가하기" 항목을 참고할 것.
 import type { ComponentType } from "react";
-import { ClockIcon, PopIcon, RacingIcon, VocaIcon } from "@/components/icons";
+import { ClockIcon, PopIcon, RacingIcon, SliceIcon, VocaIcon } from "@/components/icons";
 
 /** 서비스 카드에 붙는 선택적 배지 */
 export type ServiceBadge = "NEW" | "추천" | "준비중";
@@ -20,7 +20,7 @@ export type ServiceStatus = "live" | "coming-soon";
  * 세 변수 세트와 짝을 이룬다. 새 계열 색이 필요하면 tokens.css에 세트를
  * 하나 추가하고 여기에 같은 이름의 키를 쓰면 된다.
  */
-export type ServiceAccent = "voca" | "racing" | "pop" | "clock" | "neutral" | string;
+export type ServiceAccent = "voca" | "racing" | "pop" | "clock" | "slice" | "neutral" | string;
 
 /** 향후 영어/수학/생활학습/게임 등으로 서비스가 늘어날 때 쓰는 분류 태그 */
 export type ServiceCategory = "영어" | "수학" | "생활학습" | "게임" | string;
@@ -92,7 +92,6 @@ export const services: WetiService[] = [
     url: "https://pop.wetipapa.com",
     ctaLabel: "풍선 터뜨리기",
     status: "live",
-    badge: "NEW",
     category: "수학",
     accent: "pop",
     icon: PopIcon,
@@ -110,6 +109,20 @@ export const services: WetiService[] = [
     accent: "clock",
     icon: ClockIcon,
     order: 4,
+  },
+  {
+    id: "slice",
+    name: "분수 쓱싹",
+    nameEn: "WTPP SLICE",
+    tagline: "문제에 맞는 그림만 골라 쓱싹!",
+    url: "https://slice.wetipapa.com",
+    ctaLabel: "쓱싹 시작",
+    status: "live",
+    badge: "NEW",
+    category: "수학",
+    accent: "slice",
+    icon: SliceIcon,
+    order: 5,
   },
 ];
 

@@ -54,6 +54,11 @@
   --wp-color-pop-tint: #ddf2e4;
   --wp-color-pop-ink: #0e5730;
 
+  /* 분수 쓱싹 – 수박 속살을 닮은 자홍 */
+  --wp-color-slice: #c42d6e;
+  --wp-color-slice-tint: #fbe4ee;
+  --wp-color-slice-ink: #8e1b4c;
+
   /* 시계탐험대 – 호기심을 자극하는 바이올렛 */
   --wp-color-clock: #7c4fe0;
   --wp-color-clock-tint: #e8dffb;

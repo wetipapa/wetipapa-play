@@ -26,14 +26,14 @@
   color: var(--wp-color-ink-soft);
 }
 
-/* 서비스가 넷이라 넓은 화면에서는 2x2로 놓는다.
-   폭을 끝까지 벌리면 3열이 되어 마지막 한 장이 혼자 떨어지고,
-   열을 넷으로 만들면 카드가 좁아져 이름까지 두 줄로 접힌다. */
+/* 서비스가 다섯이라 넓은 화면에서는 3열(3+2)로 놓는다.
+   2열이면 마지막 한 장이 혼자 남고, 열을 넷 이상으로 만들면
+   카드가 좁아져 이름까지 두 줄로 접힌다. */
 .grid {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  max-width: 52rem;
+  max-width: 66rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: clamp(1rem, 3vw, 1.5rem);
