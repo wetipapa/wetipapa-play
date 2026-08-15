@@ -13,9 +13,9 @@
 
 | 서비스 | 설명 | 주소 |
 | --- | --- | --- |
-| 웨티 보카 | 사진으로 만드는 나만의 영어단어장 | https://voca.wetipapa.com |
-| 웨티 레이싱 | 구구단을 풀고 부스터로 달려요 | https://racing.wetipapa.com |
-| 웨티 시계탐험대 | 시곗바늘을 움직이며 시간을 배워요 | https://clock.wetipapa.com |
+| 단어 뚝딱 | 사진으로 만드는 나만의 영어단어장 | https://voca.wetipapa.com |
+| 구구단 레이싱 | 구구단을 풀고 부스터로 달려요 | https://racing.wetipapa.com |
+| 시계탐험대 | 시곗바늘을 움직이며 시간을 배워요 | https://clock.wetipapa.com |
 
 ## 기술 스택
 

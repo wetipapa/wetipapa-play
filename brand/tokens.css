@@ -39,22 +39,22 @@
   --wp-color-navy-ink: #012354; /* navy-tint 위에 쓰는 글자색 (12.20:1) */
 
   /* ── 서비스별 확장 컬러 ────────────────────────────────────── */
-  /* 웨티 보카 – 차분하고 신뢰감 있는 하늘빛 블루 */
+  /* 단어 뚝딱 – 차분하고 신뢰감 있는 하늘빛 블루 */
   --wp-color-voca: #2670c4;
   --wp-color-voca-tint: #dcebfa;
   --wp-color-voca-ink: #0b4a85;
 
-  /* 웨티 레이싱 – 속도감 있는 레드오렌지 */
+  /* 구구단 레이싱 – 속도감 있는 레드오렌지 */
   --wp-color-racing: #c23c0c;
   --wp-color-racing-tint: #fbe2d5;
   --wp-color-racing-ink: #8a2e0b;
 
-  /* 웨티 구구단 팡팡 – 풍선이 터지는 풀밭의 초록 */
+  /* 구구단 팡팡 – 풍선이 터지는 풀밭의 초록 */
   --wp-color-pop: #217a45;
   --wp-color-pop-tint: #ddf2e4;
   --wp-color-pop-ink: #0e5730;
 
-  /* 웨티 시계탐험대 – 호기심을 자극하는 바이올렛 */
+  /* 시계탐험대 – 호기심을 자극하는 바이올렛 */
   --wp-color-clock: #7c4fe0;
   --wp-color-clock-tint: #e8dffb;
   --wp-color-clock-ink: #3e1f8a;

@@ -28,12 +28,13 @@ export type ServiceCategory = "영어" | "수학" | "생활학습" | "게임" | 
 export interface WetiService {
   /** 내부 식별자 (URL 슬러그가 아니어도 되지만 소문자-kebab 권장) */
   id: string;
-  /** 한글 서비스명 (예: 웨티 보카) */
+  /** 한글 서비스명 (예: 단어 뚝딱) */
   name: string;
   /** 영문/보조 표기 (선택) */
   nameEn?: string;
   /**
    * 카드에 보이는 한 줄 소개.
+   * 이름이 이미 주제를 담고 있으니(구구단 레이싱) 여기서 같은 말을 되풀이하지 않는다.
    * 허브는 고르는 곳이라 이 한 줄이면 된다. 자세한 설명은 각 서비스 첫 화면이 맡는다.
    * 예전에는 아래에 긴 설명이 하나 더 있었는데, 태그라인을 풀어 쓴 말이라
    * 카드 네 개를 훑는 자리에서는 읽히지 않았다.
@@ -55,9 +56,9 @@ export interface WetiService {
 export const services: WetiService[] = [
   {
     id: "voca",
-    name: "웨티 보카",
+    name: "단어 뚝딱",
     nameEn: "WETI VOCA",
-    tagline: "사진으로 만드는 나만의 영어단어장",
+    tagline: "찍기만 하면 아이 맞춤 테스트로",
     url: "https://voca.wetipapa.com",
     ctaLabel: "단어 공부 시작",
     status: "live",
@@ -69,9 +70,9 @@ export const services: WetiService[] = [
   },
   {
     id: "racing",
-    name: "웨티 레이싱",
+    name: "구구단 레이싱",
     nameEn: "WETI RACING",
-    tagline: "구구단을 풀고 부스터로 달려요",
+    tagline: "문제를 맞히면 부스터로 달려요",
     url: "https://racing.wetipapa.com",
     ctaLabel: "레이스 시작",
     status: "live",
@@ -85,9 +86,9 @@ export const services: WetiService[] = [
     // 팡팡은 내려오는 풍선을 터뜨리는 것. 한 줄 설명은 무엇을 하는 게임인지부터 보여주고,
     // 틀린 문제 반복은 설명에서 뒤에 붙인다.
     id: "pop",
-    name: "웨티 구구단 팡팡",
+    name: "구구단 팡팡",
     nameEn: "WETI POP",
-    tagline: "하늘에서 내려오는 구구단 풍선을 팡팡!",
+    tagline: "하늘에서 내려오는 풍선을 팡팡!",
     url: "https://pop.wetipapa.com",
     ctaLabel: "풍선 터뜨리기",
     status: "live",
@@ -99,7 +100,7 @@ export const services: WetiService[] = [
   },
   {
     id: "clock",
-    name: "웨티 시계탐험대",
+    name: "시계탐험대",
     nameEn: "WETI CLOCK",
     tagline: "시곗바늘을 움직이며 시간을 배워요",
     url: "https://clock.wetipapa.com",

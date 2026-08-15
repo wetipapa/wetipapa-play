@@ -7,7 +7,7 @@ type IconProps = {
   className?: string;
 };
 
-/** 웨티 보카 – 사진 카드 + 말풍선 글자 */
+/** 단어 뚝딱 – 사진 카드 + 말풍선 글자 */
 export function VocaIcon({ className }: IconProps) {
   return (
     <svg
@@ -51,7 +51,7 @@ export function VocaIcon({ className }: IconProps) {
   );
 }
 
-/** 웨티 레이싱 – 달리는 자동차 + 속도선 */
+/** 구구단 레이싱 – 달리는 자동차 + 속도선 */
 export function RacingIcon({ className }: IconProps) {
   return (
     <svg
@@ -83,7 +83,7 @@ export function RacingIcon({ className }: IconProps) {
   );
 }
 
-/** 웨티 구구단 팡팡 – 수식이 적힌 풍선과 다트 */
+/** 구구단 팡팡 – 수식이 적힌 풍선과 다트 */
 export function PopIcon({ className }: IconProps) {
   return (
     <svg
@@ -113,7 +113,7 @@ export function PopIcon({ className }: IconProps) {
   );
 }
 
-/** 웨티 시계탐험대 – 탐험 나침반 느낌의 시계 */
+/** 시계탐험대 – 탐험 나침반 느낌의 시계 */
 export function ClockIcon({ className }: IconProps) {
   return (
     <svg

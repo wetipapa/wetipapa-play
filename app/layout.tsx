@@ -20,7 +20,7 @@ const notoSansKr = Noto_Sans_KR({
 const siteUrl = "https://play.wetipapa.com";
 const title = "WTPP PLAY - 아이와 함께 놀면서 배우는 학습 놀이터";
 const description =
-  "아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터. 웨티 보카, 웨티 레이싱, 웨티 시계탐험대를 한곳에서 만나보세요.";
+  "아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터. 단어 뚝딱, 구구단 레이싱, 시계탐험대를 한곳에서 만나보세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
