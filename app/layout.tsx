@@ -20,7 +20,7 @@ const notoSansKr = Noto_Sans_KR({
 const siteUrl = "https://play.wetipapa.com";
 const title = "WTPP PLAY - 아이와 함께 놀면서 배우는 학습 놀이터";
 const description =
-  "아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터. 단어 뚝딱, 구구단 레이싱, 시계탐험대를 한곳에서 만나보세요.";
+  "아이와 함께 놀면서 배우는 웨티파파 학습 놀이터. 단어 뚝딱, 구구단 레이싱, 시계탐험대를 한곳에서 만나보세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
   keywords: [
     "WTPP",
     "WTPP PLAY",
-    "웨티아빠",
+    "웨티파파",
     "어린이 학습",
     "영어 단어장",
     "구구단 게임",
     "시계 배우기",
     "유아 학습 게임",
   ],
-  authors: [{ name: "웨티아빠" }],
-  creator: "웨티아빠",
+  authors: [{ name: "웨티파파" }],
+  creator: "웨티파파",
   alternates: {
     canonical: "/",
   },

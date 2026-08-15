@@ -197,7 +197,7 @@ export function ComingSoonIcon({ className }: IconProps) {
   );
 }
 
-/** 웨티아빠 스파클(✦) 모티프 – 장식용, 배경 등에서 반복 사용 */
+/** 웨티파파 스파클(✦) 모티프 – 장식용, 배경 등에서 반복 사용 */
 export function SparkleIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true" focusable="false">

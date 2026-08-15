@@ -1,6 +1,6 @@
-// 웨티아빠 콘텐츠 채널 레지스트리
+// 웨티파파 콘텐츠 채널 레지스트리
 // -----------------------------------------------------------------------
-// "웨티아빠 더 만나기" 섹션과 Footer 보조 링크가 이 배열을 그대로 읽는다.
+// "웨티파파 더 만나기" 섹션과 Footer 보조 링크가 이 배열을 그대로 읽는다.
 // 새 채널(유튜브, 인스타그램 등)이 생기면 이 배열에 항목만 추가하면 된다.
 //
 // 확인된 공식 주소만 채워 넣을 것. 주소가 아직 확정되지 않은 채널은
@@ -11,7 +11,7 @@ import { BlogIcon, ThreadsIcon } from "@/components/icons";
 
 export interface WetiChannel {
   id: string;
-  /** 채널명 (예: 웨티아빠 네이버 블로그) */
+  /** 채널명 (예: 웨티파파 네이버 블로그) */
   name: string;
   /** 이 채널이 어떤 곳인지 설명하는 한 문장 */
   reason: string;
@@ -32,7 +32,7 @@ export interface WetiChannel {
 export const channels: WetiChannel[] = [
   {
     id: "blog",
-    name: "웨티아빠 네이버 블로그",
+    name: "웨티파파 네이버 블로그",
     reason: "아들 웨티와 함께하는 소소한 일상을 소개합니다",
     url: "https://blog.naver.com/wetipapa",
     ctaLabel: "블로그 놀러가기",
@@ -42,8 +42,8 @@ export const channels: WetiChannel[] = [
   },
   {
     id: "threads",
-    name: "웨티아빠 Threads",
-    reason: "웨티아빠 소식을 가장 빠르게 받고 댓글로 소통해요",
+    name: "웨티파파 Threads",
+    reason: "웨티파파 소식을 가장 빠르게 받고 댓글로 소통해요",
     url: "https://www.threads.com/@wetipapa",
     ctaLabel: "Threads 팔로우",
     icon: ThreadsIcon,

@@ -2,7 +2,7 @@ import { getVisibleChannels } from "@/config/channels";
 import styles from "./ConnectSection.module.css";
 
 /**
- * "웨티아빠 더 만나기" 섹션.
+ * "웨티파파 더 만나기" 섹션.
  * 아이의 게임 선택 영역과는 시각적으로 확실히 구분되는 부모 대상 섹션이다.
  * 채널은 config/channels.ts에 등록된 것만(=주소가 확인된 것만) 노출된다.
  */
@@ -15,7 +15,7 @@ export default function ConnectSection() {
     <section className={styles.section} aria-labelledby="connect-heading">
       <div className={styles.inner}>
         <h2 id="connect-heading" className={styles.heading}>
-          웨티아빠 더 만나기
+          웨티파파 더 만나기
         </h2>
         <p className={styles.lead}>
           아들 웨티와 함께하는 소소한 일상을 블로그와 Threads에 남기고 있어요.

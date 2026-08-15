@@ -1,8 +1,8 @@
 # WTPP PLAY
 
-> 아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터
+> 아이와 함께 놀면서 배우는 웨티파파 학습 놀이터
 
-웨티아빠가 만든 어린이 학습 서비스를 한곳에서 선택할 수 있는 통합 홈페이지다.
+웨티파파가 만든 어린이 학습 서비스를 한곳에서 선택할 수 있는 통합 홈페이지다.
 로그인·백엔드·데이터베이스 없이, 정적으로 빌드되는 Next.js 앱으로
 [Vercel](https://vercel.com)에 배포한다.
 
@@ -109,7 +109,7 @@ export const services: WetiService[] = [
 
 ## 새 SNS/콘텐츠 채널 추가하기
 
-`config/channels.ts`에 채널 하나만 추가하면 "웨티아빠 더 만나기" 섹션과
+`config/channels.ts`에 채널 하나만 추가하면 "웨티파파 더 만나기" 섹션과
 Footer 보조 링크에 함께 노출된다.
 
 ```ts
@@ -118,7 +118,7 @@ export const channels: WetiChannel[] = [
   // ...기존 채널들
   {
     id: "youtube",
-    name: "웨티아빠 유튜브",
+    name: "웨티파파 유튜브",
     reason: "아이와 함께한 순간을 영상으로 만나보세요",
     url: "https://youtube.com/@wetipapa",   // 확인된 주소만 입력할 것
     ctaLabel: "채널 구경하기",

@@ -6,7 +6,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Logo variant="compact" />
-        <p className={styles.tagline}>웨티아빠 학습 놀이터</p>
+        <p className={styles.tagline}>웨티파파 학습 놀이터</p>
       </div>
     </header>
   );

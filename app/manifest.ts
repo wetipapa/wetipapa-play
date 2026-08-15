@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "WTPP PLAY - 아이와 함께 놀면서 배우는 학습 놀이터",
     short_name: "WTPP PLAY",
-    description: "아이와 함께 놀면서 배우는 웨티아빠 학습 놀이터",
+    description: "아이와 함께 놀면서 배우는 웨티파파 학습 놀이터",
     start_url: "/",
     display: "standalone",
     background_color: "#fff7ea",
