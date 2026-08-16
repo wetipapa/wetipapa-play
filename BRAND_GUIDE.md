@@ -1,6 +1,6 @@
 # WTPP PLAY 브랜드 가이드 — 웹 구현 기준
 
-> **상위 문서가 있다.** 브랜드·캐릭터의 기준은 `Wetipapa/brand-assets/BRAND_GUIDE.md`이고,
+> **상위 문서가 있다.** 브랜드·캐릭터의 기준은 `WTPP/brand-assets/BRAND_GUIDE.md`이고,
 > 이 문서는 그것을 화면에 구현하는 층을 다룬다. 충돌하면 상위 문서가 이긴다.
 > 이 문서는 상위 문서를 부정할 수 없고, 더 좁고 구체적으로 정할 수만 있다.
 
@@ -233,8 +233,8 @@ WTPP PLAY는 캐릭터를 다시 그리지 않고, **확정 WTPP 마스터 심�
 
 | 무엇 | 어디 | 성격 |
 | --- | --- | --- |
-| **브랜드·캐릭터 기준 문서** | `Wetipapa/brand-assets/BRAND_GUIDE.md` | **상위 문서.** 충돌 시 우선 |
-| **캐릭터 그림·CI·심벌 원본** | `Wetipapa/brand-assets/confirmed/` | **기준 원본.** 여기로 복사해서 쓴다 |
+| **브랜드·캐릭터 기준 문서** | `WTPP/brand-assets/BRAND_GUIDE.md` | **상위 문서.** 충돌 시 우선 |
+| **캐릭터 그림·CI·심벌 원본** | `WTPP/brand-assets/confirmed/` | **기준 원본.** 여기로 복사해서 쓴다 |
 | 이 저장소가 쓰는 원본 사본 | `brand/source/` | 위에서 복사해 온 것. 생성 스크립트의 입력 |
 | 원본 캐릭터 그림 (사본) | `wetipapa_ogq_submission_v10/` | 절대 수정 금지, 그대로 보존 |
 | 이 저장소의 마스코트·파비콘 원본 | `brand/assets/` | 위 원본에서 파생한 이 저장소용 사본 |
